@@ -1,5 +1,7 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import Loader from "./modules/Loader";
+import UnsupportedDevide from "./modules/UnsupportedDevide";
+import { useMediaMatch } from "./utils/device-width";
 const Configurator = lazy(() => import("./modules/Configurator"));
 const PlayerScreen = lazy(() => import("./modules/PlayerScreen"));
 
@@ -18,6 +20,10 @@ function App() {
   const [screen, setScreen] = useState<"config" | "player">("config");
 
   useEffect(reset, []);
+  const isMobile = useMediaMatch();
+  console.log({ isMobile });
+
+  if (!isMobile) return <UnsupportedDevide />;
 
   return (
     <Suspense fallback={<Loader />}>

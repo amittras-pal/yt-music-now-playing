@@ -1,0 +1,14 @@
+.unsupported {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
